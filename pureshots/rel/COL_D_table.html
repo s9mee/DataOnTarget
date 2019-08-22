@@ -1,0 +1,207 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Anton Lindholm</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>12:41</td>
+                                <td>-0.542</td>
+                                <td>2.105</td>
+                                <td>-0.542</td>
+                                <td>0.752</td>
+                                <td>-0.79</td>
+                                <td>-0.815</td>
+                                <td>-0.038</td>
+                                <td>0.544</td>
+                                </tr><tr>
+                                <td>Ryan Graves</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>257:02</td>
+                                <td>0.003</td>
+                                <td>0.352</td>
+                                <td>-0.152</td>
+                                <td>-0.047</td>
+                                <td>-0.012</td>
+                                <td>0.119</td>
+                                <td>0.175</td>
+                                <td>-0.316</td>
+                                </tr><tr>
+                                <td>Mark Barberio</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>152:32</td>
+                                <td>-0.017</td>
+                                <td>0.132</td>
+                                <td>-0.017</td>
+                                <td>-0.169</td>
+                                <td>0.128</td>
+                                <td>-0.553</td>
+                                <td>0.09</td>
+                                <td>1.448</td>
+                                </tr><tr>
+                                <td>Tyson Barrie</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>1377:45</td>
+                                <td>-0.266</td>
+                                <td>-0.032</td>
+                                <td>0.025</td>
+                                <td>-0.317</td>
+                                <td>-0.05</td>
+                                <td>-0.045</td>
+                                <td>-0.192</td>
+                                <td>-0.218</td>
+                                </tr><tr>
+                                <td>Samuel Girard</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>1453:56</td>
+                                <td>-0.156</td>
+                                <td>-0.072</td>
+                                <td>0.243</td>
+                                <td>-0.137</td>
+                                <td>-0.102</td>
+                                <td>-0.017</td>
+                                <td>-0.198</td>
+                                <td>-0.426</td>
+                                </tr><tr>
+                                <td>Patrik Nemeth</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>980:22</td>
+                                <td>-0.134</td>
+                                <td>-0.089</td>
+                                <td>0.07</td>
+                                <td>-0.09</td>
+                                <td>0.087</td>
+                                <td>-0.04</td>
+                                <td>0.14</td>
+                                <td>0.643</td>
+                                </tr><tr>
+                                <td>Ian Cole</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>1163:38</td>
+                                <td>-0.129</td>
+                                <td>-0.12</td>
+                                <td>0.077</td>
+                                <td>-0.309</td>
+                                <td>-0.085</td>
+                                <td>-0.007</td>
+                                <td>-0.016</td>
+                                <td>-0.108</td>
+                                </tr><tr>
+                                <td>Erik Johnson</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>1468:43</td>
+                                <td>-0.065</td>
+                                <td>-0.122</td>
+                                <td>0.207</td>
+                                <td>0.047</td>
+                                <td>-0.136</td>
+                                <td>-0.039</td>
+                                <td>0.033</td>
+                                <td>-0.275</td>
+                                </tr><tr>
+                                <td>Nikita Zadorov</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>1081:35</td>
+                                <td>-0.19</td>
+                                <td>-0.161</td>
+                                <td>-0.061</td>
+                                <td>-0.178</td>
+                                <td>-0.05</td>
+                                <td>-0.131</td>
+                                <td>-0.043</td>
+                                <td>0.228</td>
+                                </tr><tr>
+                                <td>Mark Alt</td>
+                                <td>D</td>
+                                <td>COL</td>
+                                <td>19:00</td>
+                                <td>-0.542</td>
+                                <td>-1.048</td>
+                                <td>0.511</td>
+                                <td>0.228</td>
+                                <td>1.315</td>
+                                <td>1.29</td>
+                                <td>-1.615</td>
+                                <td>-2.605</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

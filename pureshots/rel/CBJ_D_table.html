@@ -1,0 +1,207 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Adam Clendening</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>35:28</td>
+                                <td>-0.574</td>
+                                <td>3.01</td>
+                                <td>0.549</td>
+                                <td>0.243</td>
+                                <td>0.455</td>
+                                <td>-0.786</td>
+                                <td>-0.28</td>
+                                <td>2.595</td>
+                                </tr><tr>
+                                <td>Scott Harrington</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>884:31</td>
+                                <td>-0.235</td>
+                                <td>0.42</td>
+                                <td>0.258</td>
+                                <td>0.087</td>
+                                <td>0.05</td>
+                                <td>0.05</td>
+                                <td>0.13</td>
+                                <td>0.803</td>
+                                </tr><tr>
+                                <td>Adam McQuaid</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>701:42</td>
+                                <td>-0.175</td>
+                                <td>0.289</td>
+                                <td>0.162</td>
+                                <td>0.226</td>
+                                <td>-0.075</td>
+                                <td>0.154</td>
+                                <td>0.074</td>
+                                <td>1.192</td>
+                                </tr><tr>
+                                <td>Seth Jones</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>1590:04</td>
+                                <td>-0.122</td>
+                                <td>0.183</td>
+                                <td>0.226</td>
+                                <td>-0.181</td>
+                                <td>0.094</td>
+                                <td>-0.019</td>
+                                <td>0.215</td>
+                                <td>-0.12</td>
+                                </tr><tr>
+                                <td>Ryan Murray</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>1025:18</td>
+                                <td>-0.126</td>
+                                <td>0.136</td>
+                                <td>0.318</td>
+                                <td>-0.105</td>
+                                <td>0.302</td>
+                                <td>-0.025</td>
+                                <td>0.231</td>
+                                <td>0.062</td>
+                                </tr><tr>
+                                <td>Dean Kukan</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>335:39</td>
+                                <td>-0.336</td>
+                                <td>0.076</td>
+                                <td>-0.162</td>
+                                <td>-0.289</td>
+                                <td>0.101</td>
+                                <td>0.167</td>
+                                <td>-0.097</td>
+                                <td>-0.089</td>
+                                </tr><tr>
+                                <td>Zach Werenski</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>1570:49</td>
+                                <td>-0.091</td>
+                                <td>0.056</td>
+                                <td>0.299</td>
+                                <td>-0.108</td>
+                                <td>0.04</td>
+                                <td>0.105</td>
+                                <td>0.171</td>
+                                <td>0.204</td>
+                                </tr><tr>
+                                <td>David Savard</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>1472:11</td>
+                                <td>-0.099</td>
+                                <td>-0.067</td>
+                                <td>0.195</td>
+                                <td>-0.07</td>
+                                <td>0.033</td>
+                                <td>0.26</td>
+                                <td>0.06</td>
+                                <td>0.222</td>
+                                </tr><tr>
+                                <td>Markus Nutivaara</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>1387:55</td>
+                                <td>-0.056</td>
+                                <td>-0.087</td>
+                                <td>0.314</td>
+                                <td>-0.121</td>
+                                <td>0.062</td>
+                                <td>-0.037</td>
+                                <td>-0.096</td>
+                                <td>0.221</td>
+                                </tr><tr>
+                                <td>Gabriel Carlsson</td>
+                                <td>D</td>
+                                <td>CBJ</td>
+                                <td>08:22</td>
+                                <td>-0.574</td>
+                                <td>-0.937</td>
+                                <td>-0.579</td>
+                                <td>1.505</td>
+                                <td>-0.673</td>
+                                <td>-0.786</td>
+                                <td>-1.408</td>
+                                <td>4.825</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

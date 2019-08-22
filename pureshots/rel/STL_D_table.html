@@ -1,0 +1,220 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Jakub Jerabek</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>07:25</td>
+                                <td>4.95</td>
+                                <td>1.743</td>
+                                <td>-0.582</td>
+                                <td>4.511</td>
+                                <td>1.915</td>
+                                <td>-0.734</td>
+                                <td>-1.468</td>
+                                <td>-1.756</td>
+                                </tr><tr>
+                                <td>Chris Butler</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>170:08</td>
+                                <td>-0.326</td>
+                                <td>0.457</td>
+                                <td>0.241</td>
+                                <td>-0.177</td>
+                                <td>0.159</td>
+                                <td>0.206</td>
+                                <td>0.177</td>
+                                <td>-0.221</td>
+                                </tr><tr>
+                                <td>Jordan Schmaltz</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>220:25</td>
+                                <td>0.101</td>
+                                <td>0.226</td>
+                                <td>0.416</td>
+                                <td>0.116</td>
+                                <td>0.307</td>
+                                <td>0.355</td>
+                                <td>0.528</td>
+                                <td>-0.097</td>
+                                </tr><tr>
+                                <td>Michael Del Zotto</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>639:49</td>
+                                <td>0.151</td>
+                                <td>0.109</td>
+                                <td>0.169</td>
+                                <td>-0.194</td>
+                                <td>0.093</td>
+                                <td>-0.046</td>
+                                <td>-0.03</td>
+                                <td>0.424</td>
+                                </tr><tr>
+                                <td>Jay Bouwmeester</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>1441:29</td>
+                                <td>-0.083</td>
+                                <td>0.004</td>
+                                <td>-0.054</td>
+                                <td>-0.119</td>
+                                <td>0.051</td>
+                                <td>0.029</td>
+                                <td>-0.123</td>
+                                <td>0.653</td>
+                                </tr><tr>
+                                <td>Alex Pietrangelo</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>1367:50</td>
+                                <td>-0.049</td>
+                                <td>-0.003</td>
+                                <td>0.296</td>
+                                <td>-0.078</td>
+                                <td>-0.109</td>
+                                <td>-0.047</td>
+                                <td>-0.021</td>
+                                <td>-0.212</td>
+                                </tr><tr>
+                                <td>Joel Edmundson</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>1099:42</td>
+                                <td>-0.171</td>
+                                <td>-0.008</td>
+                                <td>0.2</td>
+                                <td>-0.136</td>
+                                <td>0.146</td>
+                                <td>0.011</td>
+                                <td>-0.104</td>
+                                <td>-0.052</td>
+                                </tr><tr>
+                                <td>Colton Parayko</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>1605:16</td>
+                                <td>-0.095</td>
+                                <td>-0.032</td>
+                                <td>-0.108</td>
+                                <td>-0.209</td>
+                                <td>-0.084</td>
+                                <td>-0.111</td>
+                                <td>-0.023</td>
+                                <td>0.381</td>
+                                </tr><tr>
+                                <td>Vince Dunn</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>1194:12</td>
+                                <td>-0.075</td>
+                                <td>-0.049</td>
+                                <td>0.139</td>
+                                <td>-0.162</td>
+                                <td>-0.145</td>
+                                <td>-0.115</td>
+                                <td>-0.112</td>
+                                <td>-0.333</td>
+                                </tr><tr>
+                                <td>Carl Gunnarsson</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>355:26</td>
+                                <td>-0.049</td>
+                                <td>-0.166</td>
+                                <td>-0.131</td>
+                                <td>0.075</td>
+                                <td>-0.107</td>
+                                <td>0.054</td>
+                                <td>-0.118</td>
+                                <td>-1.189</td>
+                                </tr><tr>
+                                <td>Robert Bortuzzo</td>
+                                <td>D</td>
+                                <td>STL</td>
+                                <td>772:04</td>
+                                <td>-0.236</td>
+                                <td>-0.202</td>
+                                <td>0.144</td>
+                                <td>-0.001</td>
+                                <td>0.254</td>
+                                <td>-0.112</td>
+                                <td>-0.199</td>
+                                <td>-0.541</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

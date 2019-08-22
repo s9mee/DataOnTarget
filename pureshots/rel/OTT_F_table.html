@@ -1,0 +1,428 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Logan Brown</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>15:57</td>
+                                <td>-0.566</td>
+                                <td>2.696</td>
+                                <td>-0.443</td>
+                                <td>-0.966</td>
+                                <td>-0.88</td>
+                                <td>-0.838</td>
+                                <td>-1.556</td>
+                                <td>2.225</td>
+                                </tr><tr>
+                                <td>Max McCormick</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>100:45</td>
+                                <td>-0.368</td>
+                                <td>0.721</td>
+                                <td>0.351</td>
+                                <td>0.027</td>
+                                <td>-0.483</td>
+                                <td>0.155</td>
+                                <td>-0.167</td>
+                                <td>3.373</td>
+                                </tr><tr>
+                                <td>Darren Archibald</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>88:27</td>
+                                <td>-0.566</td>
+                                <td>0.517</td>
+                                <td>0.01</td>
+                                <td>-0.74</td>
+                                <td>0.25</td>
+                                <td>0.067</td>
+                                <td>-0.652</td>
+                                <td>0.457</td>
+                                </tr><tr>
+                                <td>Mikkel Boedker</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>860:39</td>
+                                <td>-0.055</td>
+                                <td>0.445</td>
+                                <td>0.255</td>
+                                <td>0.08</td>
+                                <td>0.142</td>
+                                <td>0.255</td>
+                                <td>-0.185</td>
+                                <td>-0.232</td>
+                                </tr><tr>
+                                <td>Alex Formenton</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>100:31</td>
+                                <td>-0.168</td>
+                                <td>0.327</td>
+                                <td>-0.045</td>
+                                <td>0.427</td>
+                                <td>-0.283</td>
+                                <td>-0.241</td>
+                                <td>-0.76</td>
+                                <td>1.207</td>
+                                </tr><tr>
+                                <td>Max Veronneau</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>135:57</td>
+                                <td>-0.272</td>
+                                <td>0.258</td>
+                                <td>-0.001</td>
+                                <td>-0.083</td>
+                                <td>0.738</td>
+                                <td>0.486</td>
+                                <td>-0.232</td>
+                                <td>-0.521</td>
+                                </tr><tr>
+                                <td>Filip Chlapik</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>61:08</td>
+                                <td>0.088</td>
+                                <td>0.243</td>
+                                <td>0.212</td>
+                                <td>0.343</td>
+                                <td>0.755</td>
+                                <td>-0.51</td>
+                                <td>-1.229</td>
+                                <td>-1.973</td>
+                                </tr><tr>
+                                <td>Rudolfs Balcers</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>384:49</td>
+                                <td>-0.202</td>
+                                <td>0.129</td>
+                                <td>0.233</td>
+                                <td>0.177</td>
+                                <td>-0.049</td>
+                                <td>-0.11</td>
+                                <td>-0.309</td>
+                                <td>-0.368</td>
+                                </tr><tr>
+                                <td>Bobby Ryan</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>1031:51</td>
+                                <td>0.151</td>
+                                <td>0.116</td>
+                                <td>0.178</td>
+                                <td>0.081</td>
+                                <td>-0.047</td>
+                                <td>-0.004</td>
+                                <td>-0.025</td>
+                                <td>-0.389</td>
+                                </tr><tr>
+                                <td>Chris Tierney</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>1102:58</td>
+                                <td>0.087</td>
+                                <td>0.095</td>
+                                <td>0.12</td>
+                                <td>-0.059</td>
+                                <td>0.063</td>
+                                <td>-0.148</td>
+                                <td>0.003</td>
+                                <td>-0.061</td>
+                                </tr><tr>
+                                <td>Magnus Paajarvi</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>913:25</td>
+                                <td>-0.194</td>
+                                <td>0.073</td>
+                                <td>0.192</td>
+                                <td>-0.112</td>
+                                <td>-0.026</td>
+                                <td>-0.093</td>
+                                <td>-0.199</td>
+                                <td>0.213</td>
+                                </tr><tr>
+                                <td>Colin White</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>984:25</td>
+                                <td>-0.079</td>
+                                <td>0.072</td>
+                                <td>0.065</td>
+                                <td>-0.194</td>
+                                <td>-0.047</td>
+                                <td>-0.086</td>
+                                <td>-0.053</td>
+                                <td>0.152</td>
+                                </tr><tr>
+                                <td>Paul Carey</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>72:57</td>
+                                <td>-0.566</td>
+                                <td>0.031</td>
+                                <td>0.106</td>
+                                <td>-0.144</td>
+                                <td>-0.332</td>
+                                <td>-0.289</td>
+                                <td>-0.734</td>
+                                <td>-1.618</td>
+                                </tr><tr>
+                                <td>Ryan Dzingel</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>1172:13</td>
+                                <td>0.014</td>
+                                <td>0.026</td>
+                                <td>0.155</td>
+                                <td>0.007</td>
+                                <td>-0.164</td>
+                                <td>0.152</td>
+                                <td>0.304</td>
+                                <td>-0.718</td>
+                                </tr><tr>
+                                <td>Tom Pyatt</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>366:30</td>
+                                <td>-0.184</td>
+                                <td>0.025</td>
+                                <td>0.158</td>
+                                <td>0.18</td>
+                                <td>-0.226</td>
+                                <td>0.09</td>
+                                <td>-0.028</td>
+                                <td>2.67</td>
+                                </tr><tr>
+                                <td>Oscar Lindberg</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>654:32</td>
+                                <td>0.106</td>
+                                <td>0.004</td>
+                                <td>0.199</td>
+                                <td>-0.263</td>
+                                <td>0.128</td>
+                                <td>0.018</td>
+                                <td>-0.426</td>
+                                <td>-2.153</td>
+                                </tr><tr>
+                                <td>Jean-Gabriel Pageau</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>582:44</td>
+                                <td>-0.36</td>
+                                <td>-0.002</td>
+                                <td>0.347</td>
+                                <td>-0.211</td>
+                                <td>-0.022</td>
+                                <td>0.123</td>
+                                <td>-0.526</td>
+                                <td>-0.718</td>
+                                </tr><tr>
+                                <td>Anthony Duclair</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>818:03</td>
+                                <td>0.069</td>
+                                <td>-0.015</td>
+                                <td>0.389</td>
+                                <td>0.012</td>
+                                <td>0.122</td>
+                                <td>-0.153</td>
+                                <td>-0.016</td>
+                                <td>-1.15</td>
+                                </tr><tr>
+                                <td>Brian Gibbons</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>646:57</td>
+                                <td>-0.072</td>
+                                <td>-0.015</td>
+                                <td>0.238</td>
+                                <td>0.023</td>
+                                <td>0.047</td>
+                                <td>0.183</td>
+                                <td>-0.196</td>
+                                <td>-1.174</td>
+                                </tr><tr>
+                                <td>Matt Duchene</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>1175:04</td>
+                                <td>-0.09</td>
+                                <td>-0.028</td>
+                                <td>0.119</td>
+                                <td>-0.047</td>
+                                <td>-0.097</td>
+                                <td>-0.021</td>
+                                <td>0.027</td>
+                                <td>-1.157</td>
+                                </tr><tr>
+                                <td>Zack Smith</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>1009:55</td>
+                                <td>-0.091</td>
+                                <td>-0.036</td>
+                                <td>0.152</td>
+                                <td>-0.035</td>
+                                <td>-0.029</td>
+                                <td>0.034</td>
+                                <td>-0.269</td>
+                                <td>-0.057</td>
+                                </tr><tr>
+                                <td>Mark Stone</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>1249:45</td>
+                                <td>-0.15</td>
+                                <td>-0.074</td>
+                                <td>-0.042</td>
+                                <td>-0.262</td>
+                                <td>-0.064</td>
+                                <td>0.059</td>
+                                <td>-0.34</td>
+                                <td>-0.776</td>
+                                </tr><tr>
+                                <td>Nick Paul</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>168:57</td>
+                                <td>0.262</td>
+                                <td>-0.119</td>
+                                <td>0.031</td>
+                                <td>-0.256</td>
+                                <td>-0.052</td>
+                                <td>-0.601</td>
+                                <td>-0.136</td>
+                                <td>-0.042</td>
+                                </tr><tr>
+                                <td>Brady Tkachuk</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>975:32</td>
+                                <td>-0.095</td>
+                                <td>-0.225</td>
+                                <td>0.234</td>
+                                <td>-0.31</td>
+                                <td>0.063</td>
+                                <td>-0.038</td>
+                                <td>-0.162</td>
+                                <td>-0.628</td>
+                                </tr><tr>
+                                <td>Drake Batherson</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>230:47</td>
+                                <td>-0.133</td>
+                                <td>-0.373</td>
+                                <td>-0.183</td>
+                                <td>-0.273</td>
+                                <td>-0.014</td>
+                                <td>-0.058</td>
+                                <td>0.35</td>
+                                <td>0.814</td>
+                                </tr><tr>
+                                <td>Jack Rodewald</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>42:20</td>
+                                <td>-0.566</td>
+                                <td>-1.066</td>
+                                <td>0.03</td>
+                                <td>0.924</td>
+                                <td>-0.408</td>
+                                <td>-0.365</td>
+                                <td>-0.611</td>
+                                <td>-0.883</td>
+                                </tr><tr>
+                                <td>Vitaly Abramov</td>
+                                <td>F</td>
+                                <td>OTT</td>
+                                <td>13:01</td>
+                                <td>-0.566</td>
+                                <td>-1.066</td>
+                                <td>2.63</td>
+                                <td>2.107</td>
+                                <td>-0.88</td>
+                                <td>-0.838</td>
+                                <td>-0.02</td>
+                                <td>-3.48</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

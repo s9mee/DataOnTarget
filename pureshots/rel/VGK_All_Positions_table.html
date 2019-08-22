@@ -1,0 +1,441 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                            <td>Daniel Carr</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>58:07</td>
+                            <td>0.83</td>
+                            <td>0.452</td>
+                            <td>0.491</td>
+                            <td>-0.451</td>
+                            <td>-0.016</td>
+                            <td>-0.27</td>
+                            <td>-0.338</td>
+                            <td>-2.771</td>
+                            </tr><tr>
+                            <td>Brad Hunt</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>523:37</td>
+                            <td>-0.164</td>
+                            <td>0.412</td>
+                            <td>-0.007</td>
+                            <td>-0.184</td>
+                            <td>-0.093</td>
+                            <td>-0.386</td>
+                            <td>-0.11</td>
+                            <td>-0.138</td>
+                            </tr><tr>
+                            <td>Max Pacioretty</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>938:58</td>
+                            <td>0.029</td>
+                            <td>0.161</td>
+                            <td>0.097</td>
+                            <td>-0.135</td>
+                            <td>0.062</td>
+                            <td>0.043</td>
+                            <td>-0.093</td>
+                            <td>-0.235</td>
+                            </tr><tr>
+                            <td>Oscar Lindberg</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>654:32</td>
+                            <td>0.126</td>
+                            <td>0.144</td>
+                            <td>0.1</td>
+                            <td>-0.093</td>
+                            <td>0.304</td>
+                            <td>-0.103</td>
+                            <td>-0.24</td>
+                            <td>-0.436</td>
+                            </tr><tr>
+                            <td>Cody Eakin</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>1009:01</td>
+                            <td>-0.09</td>
+                            <td>0.126</td>
+                            <td>0.172</td>
+                            <td>-0.122</td>
+                            <td>0.227</td>
+                            <td>0.072</td>
+                            <td>0.096</td>
+                            <td>0.001</td>
+                            </tr><tr>
+                            <td>William Carrier</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>533:29</td>
+                            <td>-0.134</td>
+                            <td>0.125</td>
+                            <td>0.058</td>
+                            <td>-0.083</td>
+                            <td>-0.142</td>
+                            <td>-0.171</td>
+                            <td>-0.283</td>
+                            <td>-0.037</td>
+                            </tr><tr>
+                            <td>Nick Holden</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>1004:01</td>
+                            <td>-0.048</td>
+                            <td>0.091</td>
+                            <td>0.036</td>
+                            <td>-0.138</td>
+                            <td>0.033</td>
+                            <td>0.137</td>
+                            <td>-0.235</td>
+                            <td>-0.533</td>
+                            </tr><tr>
+                            <td>Ryan Reaves</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>811:32</td>
+                            <td>-0.152</td>
+                            <td>0.085</td>
+                            <td>0.124</td>
+                            <td>-0.13</td>
+                            <td>-0.187</td>
+                            <td>-0.071</td>
+                            <td>-0.188</td>
+                            <td>-0.03</td>
+                            </tr><tr>
+                            <td>Ryan Carpenter</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>759:02</td>
+                            <td>-0.151</td>
+                            <td>0.076</td>
+                            <td>0.144</td>
+                            <td>-0.295</td>
+                            <td>0.033</td>
+                            <td>-0.221</td>
+                            <td>-0.211</td>
+                            <td>-0.962</td>
+                            </tr><tr>
+                            <td>Brayden McNabb</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>1345:38</td>
+                            <td>0.137</td>
+                            <td>0.071</td>
+                            <td>0.216</td>
+                            <td>-0.112</td>
+                            <td>-0.006</td>
+                            <td>-0.171</td>
+                            <td>-0.003</td>
+                            <td>0.143</td>
+                            </tr><tr>
+                            <td>Mark Stone</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>1249:45</td>
+                            <td>-0.13</td>
+                            <td>0.067</td>
+                            <td>-0.141</td>
+                            <td>-0.091</td>
+                            <td>0.112</td>
+                            <td>-0.062</td>
+                            <td>-0.154</td>
+                            <td>0.941</td>
+                            </tr><tr>
+                            <td>Pierre-Edouard Bellemare</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>790:53</td>
+                            <td>-0.091</td>
+                            <td>0.061</td>
+                            <td>0.04</td>
+                            <td>-0.037</td>
+                            <td>-0.148</td>
+                            <td>0.028</td>
+                            <td>0.02</td>
+                            <td>-0.233</td>
+                            </tr><tr>
+                            <td>Shea Theodore</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>1383:22</td>
+                            <td>-0.098</td>
+                            <td>0.058</td>
+                            <td>0.037</td>
+                            <td>-0.087</td>
+                            <td>-0.039</td>
+                            <td>-0.163</td>
+                            <td>-0.171</td>
+                            <td>-0.195</td>
+                            </tr><tr>
+                            <td>Paul Stastny</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>748:21</td>
+                            <td>-0.065</td>
+                            <td>0.01</td>
+                            <td>0.073</td>
+                            <td>-0.101</td>
+                            <td>0.017</td>
+                            <td>0.057</td>
+                            <td>-0.302</td>
+                            <td>0.135</td>
+                            </tr><tr>
+                            <td>Alex Tuch</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>1052:49</td>
+                            <td>-0.109</td>
+                            <td>-0.013</td>
+                            <td>-0.01</td>
+                            <td>-0.112</td>
+                            <td>0.036</td>
+                            <td>-0.028</td>
+                            <td>-0.079</td>
+                            <td>-0.295</td>
+                            </tr><tr>
+                            <td>Deryk Engelland</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>1228:19</td>
+                            <td>-0.058</td>
+                            <td>-0.013</td>
+                            <td>0.224</td>
+                            <td>0.002</td>
+                            <td>-0.053</td>
+                            <td>0.116</td>
+                            <td>0.209</td>
+                            <td>0.212</td>
+                            </tr><tr>
+                            <td>Nate Schmidt</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>1136:27</td>
+                            <td>0.017</td>
+                            <td>-0.08</td>
+                            <td>0.18</td>
+                            <td>0.014</td>
+                            <td>-0.018</td>
+                            <td>-0.061</td>
+                            <td>0.055</td>
+                            <td>0.039</td>
+                            </tr><tr>
+                            <td>Colin Miller</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>1084:24</td>
+                            <td>-0.122</td>
+                            <td>-0.095</td>
+                            <td>-0.099</td>
+                            <td>-0.168</td>
+                            <td>0.052</td>
+                            <td>0.13</td>
+                            <td>-0.117</td>
+                            <td>-0.483</td>
+                            </tr><tr>
+                            <td>Reilly Smith</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>1056:18</td>
+                            <td>-0.073</td>
+                            <td>-0.149</td>
+                            <td>0.045</td>
+                            <td>-0.019</td>
+                            <td>-0.099</td>
+                            <td>0.083</td>
+                            <td>-0.026</td>
+                            <td>-0.216</td>
+                            </tr><tr>
+                            <td>Jonathan Marchessault</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>1266:02</td>
+                            <td>0.007</td>
+                            <td>-0.151</td>
+                            <td>0.011</td>
+                            <td>-0.069</td>
+                            <td>-0.136</td>
+                            <td>0.068</td>
+                            <td>-0.075</td>
+                            <td>0.109</td>
+                            </tr><tr>
+                            <td>Erik Haula</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>211:10</td>
+                            <td>0.117</td>
+                            <td>-0.167</td>
+                            <td>-0.257</td>
+                            <td>-0.227</td>
+                            <td>-0.136</td>
+                            <td>-0.58</td>
+                            <td>-0.329</td>
+                            <td>-1.142</td>
+                            </tr><tr>
+                            <td>William Karlsson</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>1220:19</td>
+                            <td>0.076</td>
+                            <td>-0.171</td>
+                            <td>0.065</td>
+                            <td>-0.025</td>
+                            <td>-0.196</td>
+                            <td>0.107</td>
+                            <td>0.039</td>
+                            <td>-0.247</td>
+                            </tr><tr>
+                            <td>Jon Merrill</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>938:58</td>
+                            <td>-0.227</td>
+                            <td>-0.179</td>
+                            <td>0.076</td>
+                            <td>-0.199</td>
+                            <td>0.062</td>
+                            <td>0.064</td>
+                            <td>-0.519</td>
+                            <td>-0.469</td>
+                            </tr><tr>
+                            <td>Brandon Pirri</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>385:44</td>
+                            <td>-0.08</td>
+                            <td>-0.199</td>
+                            <td>-0.179</td>
+                            <td>-0.018</td>
+                            <td>-0.134</td>
+                            <td>0.027</td>
+                            <td>-0.437</td>
+                            <td>0.297</td>
+                            </tr><tr>
+                            <td>Tomas Nosek</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>704:55</td>
+                            <td>-0.178</td>
+                            <td>-0.216</td>
+                            <td>0.224</td>
+                            <td>-0.086</td>
+                            <td>0.09</td>
+                            <td>-0.221</td>
+                            <td>0.02</td>
+                            <td>-0.466</td>
+                            </tr><tr>
+                            <td>Tomas Hyka</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>166:06</td>
+                            <td>-0.426</td>
+                            <td>-0.323</td>
+                            <td>0.06</td>
+                            <td>0.409</td>
+                            <td>0.379</td>
+                            <td>-0.356</td>
+                            <td>-0.889</td>
+                            <td>-0.983</td>
+                            </tr><tr>
+                            <td>Valentin Zykov</td>
+                            <td>F</td>
+                            <td>VGK</td>
+                            <td>237:12</td>
+                            <td>-0.209</td>
+                            <td>-0.335</td>
+                            <td>0.049</td>
+                            <td>-0.205</td>
+                            <td>0.223</td>
+                            <td>0.475</td>
+                            <td>-0.696</td>
+                            <td>-2.138</td>
+                            </tr><tr>
+                            <td>Jimmy Schuldt</td>
+                            <td>D</td>
+                            <td>VGK</td>
+                            <td>19:12</td>
+                            <td>1.537</td>
+                            <td>-0.925</td>
+                            <td>1.542</td>
+                            <td>0.246</td>
+                            <td>-0.705</td>
+                            <td>1.125</td>
+                            <td>0.713</td>
+                            <td>-1.711</td>
+                            </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

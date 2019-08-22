@@ -1,0 +1,220 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Zach Trotman</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>174:31</td>
+                                <td>-0.478</td>
+                                <td>0.214</td>
+                                <td>-0.086</td>
+                                <td>-0.074</td>
+                                <td>0.211</td>
+                                <td>-0.547</td>
+                                <td>-0.588</td>
+                                <td>0.657</td>
+                                </tr><tr>
+                                <td>Jamie Oleksiak</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>813:54</td>
+                                <td>-0.134</td>
+                                <td>0.182</td>
+                                <td>-0.053</td>
+                                <td>-0.016</td>
+                                <td>0.031</td>
+                                <td>-0.129</td>
+                                <td>0.036</td>
+                                <td>-0.28</td>
+                                </tr><tr>
+                                <td>Justin Schultz</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>520:59</td>
+                                <td>0.021</td>
+                                <td>0.105</td>
+                                <td>0.338</td>
+                                <td>0.045</td>
+                                <td>-0.053</td>
+                                <td>-0.084</td>
+                                <td>-0.045</td>
+                                <td>0.536</td>
+                                </tr><tr>
+                                <td>Kris Letang</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>1336:50</td>
+                                <td>0.0</td>
+                                <td>0.045</td>
+                                <td>-0.006</td>
+                                <td>-0.218</td>
+                                <td>-0.063</td>
+                                <td>-0.128</td>
+                                <td>-0.028</td>
+                                <td>-0.584</td>
+                                </tr><tr>
+                                <td>Brian Dumoulin</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>1408:29</td>
+                                <td>0.019</td>
+                                <td>0.032</td>
+                                <td>0.123</td>
+                                <td>-0.195</td>
+                                <td>-0.01</td>
+                                <td>-0.166</td>
+                                <td>-0.129</td>
+                                <td>-0.194</td>
+                                </tr><tr>
+                                <td>Erik Gudbranson</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>1226:23</td>
+                                <td>0.174</td>
+                                <td>0.029</td>
+                                <td>0.222</td>
+                                <td>0.004</td>
+                                <td>0.044</td>
+                                <td>0.072</td>
+                                <td>-0.005</td>
+                                <td>-0.02</td>
+                                </tr><tr>
+                                <td>Jack Johnson</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>1368:18</td>
+                                <td>-0.098</td>
+                                <td>-0.009</td>
+                                <td>0.157</td>
+                                <td>0.001</td>
+                                <td>0.113</td>
+                                <td>0.162</td>
+                                <td>-0.038</td>
+                                <td>0.218</td>
+                                </tr><tr>
+                                <td>Olli Maatta</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>945:10</td>
+                                <td>-0.182</td>
+                                <td>-0.052</td>
+                                <td>0.069</td>
+                                <td>-0.051</td>
+                                <td>-0.008</td>
+                                <td>0.146</td>
+                                <td>0.128</td>
+                                <td>-0.28</td>
+                                </tr><tr>
+                                <td>Marcus Pettersson</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>1260:26</td>
+                                <td>-0.113</td>
+                                <td>-0.079</td>
+                                <td>-0.005</td>
+                                <td>-0.258</td>
+                                <td>-0.008</td>
+                                <td>0.125</td>
+                                <td>-0.258</td>
+                                <td>-0.714</td>
+                                </tr><tr>
+                                <td>Juuso Riikola</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>577:02</td>
+                                <td>-0.167</td>
+                                <td>-0.146</td>
+                                <td>-0.025</td>
+                                <td>-0.114</td>
+                                <td>-0.013</td>
+                                <td>0.115</td>
+                                <td>0.138</td>
+                                <td>0.86</td>
+                                </tr><tr>
+                                <td>Chad Ruhwedel</td>
+                                <td>D</td>
+                                <td>PIT</td>
+                                <td>268:19</td>
+                                <td>-0.255</td>
+                                <td>-0.301</td>
+                                <td>0.201</td>
+                                <td>-0.131</td>
+                                <td>0.114</td>
+                                <td>-0.145</td>
+                                <td>-0.168</td>
+                                <td>-0.393</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

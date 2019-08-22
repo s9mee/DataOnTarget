@@ -1,0 +1,376 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Drake Caggiula</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>732:05</td>
+                                <td>0.176</td>
+                                <td>0.432</td>
+                                <td>0.116</td>
+                                <td>0.2</td>
+                                <td>0.044</td>
+                                <td>0.174</td>
+                                <td>0.093</td>
+                                <td>0.997</td>
+                                </tr><tr>
+                                <td>Kailer Yamamoto</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>199:50</td>
+                                <td>0.239</td>
+                                <td>0.24</td>
+                                <td>0.406</td>
+                                <td>-0.265</td>
+                                <td>-0.266</td>
+                                <td>-0.037</td>
+                                <td>-0.254</td>
+                                <td>-0.709</td>
+                                </tr><tr>
+                                <td>Zack Kassian</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>1063:53</td>
+                                <td>-0.054</td>
+                                <td>0.205</td>
+                                <td>0.345</td>
+                                <td>-0.02</td>
+                                <td>0.199</td>
+                                <td>-0.066</td>
+                                <td>-0.076</td>
+                                <td>-0.162</td>
+                                </tr><tr>
+                                <td>Leon Draisaitl</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>1483:27</td>
+                                <td>-0.009</td>
+                                <td>0.199</td>
+                                <td>0.133</td>
+                                <td>-0.03</td>
+                                <td>0.116</td>
+                                <td>-0.096</td>
+                                <td>-0.078</td>
+                                <td>0.295</td>
+                                </tr><tr>
+                                <td>Joseph Gambardella</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>121:24</td>
+                                <td>-0.232</td>
+                                <td>0.192</td>
+                                <td>-0.1</td>
+                                <td>-0.042</td>
+                                <td>0.652</td>
+                                <td>-0.013</td>
+                                <td>0.651</td>
+                                <td>0.782</td>
+                                </tr><tr>
+                                <td>Connor McDavid</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>1465:37</td>
+                                <td>0.053</td>
+                                <td>0.185</td>
+                                <td>0.211</td>
+                                <td>0.008</td>
+                                <td>0.003</td>
+                                <td>0.118</td>
+                                <td>0.064</td>
+                                <td>-0.169</td>
+                                </tr><tr>
+                                <td>Ryan Nugent-Hopkins</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>1243:31</td>
+                                <td>-0.079</td>
+                                <td>0.181</td>
+                                <td>0.177</td>
+                                <td>0.019</td>
+                                <td>0.09</td>
+                                <td>0.128</td>
+                                <td>0.017</td>
+                                <td>0.654</td>
+                                </tr><tr>
+                                <td>Tobias Rieder</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>734:16</td>
+                                <td>-0.125</td>
+                                <td>0.156</td>
+                                <td>0.168</td>
+                                <td>-0.239</td>
+                                <td>0.097</td>
+                                <td>-0.292</td>
+                                <td>-0.212</td>
+                                <td>1.033</td>
+                                </tr><tr>
+                                <td>Brad Malone</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>127:41</td>
+                                <td>-0.248</td>
+                                <td>0.136</td>
+                                <td>0.502</td>
+                                <td>-0.552</td>
+                                <td>0.117</td>
+                                <td>0.103</td>
+                                <td>-0.089</td>
+                                <td>0.326</td>
+                                </tr><tr>
+                                <td>Sam Gagner</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>420:27</td>
+                                <td>0.247</td>
+                                <td>0.086</td>
+                                <td>0.119</td>
+                                <td>0.038</td>
+                                <td>0.143</td>
+                                <td>0.209</td>
+                                <td>0.01</td>
+                                <td>-0.319</td>
+                                </tr><tr>
+                                <td>Alex Chiasson</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>1002:45</td>
+                                <td>-0.123</td>
+                                <td>0.056</td>
+                                <td>0.064</td>
+                                <td>-0.168</td>
+                                <td>0.132</td>
+                                <td>-0.119</td>
+                                <td>0.06</td>
+                                <td>0.93</td>
+                                </tr><tr>
+                                <td>Milan Lucic</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>939:31</td>
+                                <td>-0.05</td>
+                                <td>0.04</td>
+                                <td>0.065</td>
+                                <td>-0.078</td>
+                                <td>0.058</td>
+                                <td>-0.113</td>
+                                <td>-0.314</td>
+                                <td>-0.119</td>
+                                </tr><tr>
+                                <td>Ryan Strome</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>1063:10</td>
+                                <td>-0.129</td>
+                                <td>0.017</td>
+                                <td>0.496</td>
+                                <td>-0.094</td>
+                                <td>0.218</td>
+                                <td>0.047</td>
+                                <td>0.094</td>
+                                <td>-0.234</td>
+                                </tr><tr>
+                                <td>Cooper Marody</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>40:55</td>
+                                <td>-0.072</td>
+                                <td>0.017</td>
+                                <td>-0.595</td>
+                                <td>-0.377</td>
+                                <td>0.312</td>
+                                <td>1.118</td>
+                                <td>-1.655</td>
+                                <td>-0.914</td>
+                                </tr><tr>
+                                <td>Colby Cave</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>577:18</td>
+                                <td>0.062</td>
+                                <td>-0.06</td>
+                                <td>0.272</td>
+                                <td>-0.069</td>
+                                <td>0.269</td>
+                                <td>0.167</td>
+                                <td>-0.581</td>
+                                <td>0.368</td>
+                                </tr><tr>
+                                <td>Josh Currie</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>181:50</td>
+                                <td>-0.121</td>
+                                <td>-0.081</td>
+                                <td>0.065</td>
+                                <td>-0.316</td>
+                                <td>0.214</td>
+                                <td>0.153</td>
+                                <td>-0.775</td>
+                                <td>2.056</td>
+                                </tr><tr>
+                                <td>Kyle Brodziak</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>694:05</td>
+                                <td>-0.187</td>
+                                <td>-0.096</td>
+                                <td>0.241</td>
+                                <td>-0.088</td>
+                                <td>0.17</td>
+                                <td>0.114</td>
+                                <td>0.045</td>
+                                <td>0.536</td>
+                                </tr><tr>
+                                <td>Ty Rattie</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>522:59</td>
+                                <td>-0.217</td>
+                                <td>-0.12</td>
+                                <td>0.017</td>
+                                <td>-0.101</td>
+                                <td>0.137</td>
+                                <td>0.081</td>
+                                <td>-0.24</td>
+                                <td>0.423</td>
+                                </tr><tr>
+                                <td>Ryan Spooner</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>536:14</td>
+                                <td>0.222</td>
+                                <td>-0.252</td>
+                                <td>0.077</td>
+                                <td>-0.12</td>
+                                <td>-0.256</td>
+                                <td>0.207</td>
+                                <td>0.098</td>
+                                <td>0.953</td>
+                                </tr><tr>
+                                <td>Jesse Puljujarvi</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>527:54</td>
+                                <td>-0.145</td>
+                                <td>-0.279</td>
+                                <td>0.049</td>
+                                <td>0.119</td>
+                                <td>0.054</td>
+                                <td>0.299</td>
+                                <td>-0.178</td>
+                                <td>0.445</td>
+                                </tr><tr>
+                                <td>Jujhar Khaira</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>661:24</td>
+                                <td>-0.168</td>
+                                <td>-0.296</td>
+                                <td>0.101</td>
+                                <td>-0.049</td>
+                                <td>0.09</td>
+                                <td>0.161</td>
+                                <td>-0.053</td>
+                                <td>0.099</td>
+                                </tr><tr>
+                                <td>Valentin Zykov</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>237:12</td>
+                                <td>-0.224</td>
+                                <td>-0.371</td>
+                                <td>-0.004</td>
+                                <td>-0.276</td>
+                                <td>0.262</td>
+                                <td>0.596</td>
+                                <td>-0.981</td>
+                                <td>-2.615</td>
+                                </tr><tr>
+                                <td>Patrick Russell</td>
+                                <td>F</td>
+                                <td>EDM</td>
+                                <td>48:57</td>
+                                <td>-0.561</td>
+                                <td>-0.961</td>
+                                <td>-0.186</td>
+                                <td>0.36</td>
+                                <td>-0.257</td>
+                                <td>-0.02</td>
+                                <td>-0.838</td>
+                                <td>-1.227</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

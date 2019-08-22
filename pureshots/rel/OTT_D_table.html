@@ -1,0 +1,272 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Stefan Elliott</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>24:54</td>
+                                <td>0.237</td>
+                                <td>2.147</td>
+                                <td>-0.443</td>
+                                <td>0.64</td>
+                                <td>0.726</td>
+                                <td>-0.838</td>
+                                <td>-1.556</td>
+                                <td>-3.34</td>
+                                </tr><tr>
+                                <td>Chris Wideman</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>272:25</td>
+                                <td>0.168</td>
+                                <td>0.549</td>
+                                <td>0.145</td>
+                                <td>-0.085</td>
+                                <td>-0.293</td>
+                                <td>0.19</td>
+                                <td>-0.235</td>
+                                <td>-0.019</td>
+                                </tr><tr>
+                                <td>Erik Burgdoerfer</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>40:58</td>
+                                <td>-0.566</td>
+                                <td>0.399</td>
+                                <td>0.534</td>
+                                <td>-0.478</td>
+                                <td>0.096</td>
+                                <td>-0.838</td>
+                                <td>-0.58</td>
+                                <td>1.747</td>
+                                </tr><tr>
+                                <td>Maxime Lajoie</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>862:55</td>
+                                <td>-0.126</td>
+                                <td>0.232</td>
+                                <td>0.183</td>
+                                <td>-0.108</td>
+                                <td>0.186</td>
+                                <td>-0.026</td>
+                                <td>-0.05</td>
+                                <td>0.285</td>
+                                </tr><tr>
+                                <td>Thomas Chabot</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>1452:51</td>
+                                <td>-0.098</td>
+                                <td>0.187</td>
+                                <td>0.122</td>
+                                <td>-0.168</td>
+                                <td>-0.096</td>
+                                <td>-0.025</td>
+                                <td>-0.014</td>
+                                <td>-0.675</td>
+                                </tr><tr>
+                                <td>Cody Ceci</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>1450:03</td>
+                                <td>-0.042</td>
+                                <td>0.175</td>
+                                <td>0.178</td>
+                                <td>0.027</td>
+                                <td>0.071</td>
+                                <td>0.045</td>
+                                <td>-0.204</td>
+                                <td>0.344</td>
+                                </tr><tr>
+                                <td>Justin Falk</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>117:55</td>
+                                <td>-0.057</td>
+                                <td>0.121</td>
+                                <td>-0.103</td>
+                                <td>-0.457</td>
+                                <td>0.137</td>
+                                <td>0.35</td>
+                                <td>-0.708</td>
+                                <td>0.571</td>
+                                </tr><tr>
+                                <td>Dylan DeMelo</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>1320:19</td>
+                                <td>-0.006</td>
+                                <td>0.116</td>
+                                <td>0.148</td>
+                                <td>0.003</td>
+                                <td>0.029</td>
+                                <td>-0.095</td>
+                                <td>-0.117</td>
+                                <td>-1.009</td>
+                                </tr><tr>
+                                <td>Christian Wolanin</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>461:58</td>
+                                <td>-0.09</td>
+                                <td>0.103</td>
+                                <td>0.25</td>
+                                <td>0.073</td>
+                                <td>-0.101</td>
+                                <td>0.072</td>
+                                <td>-0.171</td>
+                                <td>-0.708</td>
+                                </tr><tr>
+                                <td>Andreas Englund</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>37:51</td>
+                                <td>-0.566</td>
+                                <td>-0.009</td>
+                                <td>0.086</td>
+                                <td>-0.966</td>
+                                <td>-0.88</td>
+                                <td>-0.838</td>
+                                <td>0.029</td>
+                                <td>-3.382</td>
+                                </tr><tr>
+                                <td>Christian Jaros</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>822:10</td>
+                                <td>-0.104</td>
+                                <td>-0.069</td>
+                                <td>0.141</td>
+                                <td>-0.139</td>
+                                <td>-0.078</td>
+                                <td>0.136</td>
+                                <td>-0.34</td>
+                                <td>-0.471</td>
+                                </tr><tr>
+                                <td>Ben Harpur</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>772:03</td>
+                                <td>-0.178</td>
+                                <td>-0.107</td>
+                                <td>0.179</td>
+                                <td>0.096</td>
+                                <td>0.026</td>
+                                <td>0.043</td>
+                                <td>-0.079</td>
+                                <td>-0.18</td>
+                                </tr><tr>
+                                <td>Mark Borowiecki</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>746:13</td>
+                                <td>-0.03</td>
+                                <td>-0.155</td>
+                                <td>0.227</td>
+                                <td>0.079</td>
+                                <td>0.085</td>
+                                <td>0.02</td>
+                                <td>-0.35</td>
+                                <td>0.523</td>
+                                </tr><tr>
+                                <td>Erik Brannstrom</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>32:08</td>
+                                <td>-0.566</td>
+                                <td>-0.444</td>
+                                <td>0.802</td>
+                                <td>2.146</td>
+                                <td>0.987</td>
+                                <td>-0.215</td>
+                                <td>-0.311</td>
+                                <td>-1.573</td>
+                                </tr><tr>
+                                <td>Cody Goloubef</td>
+                                <td>D</td>
+                                <td>OTT</td>
+                                <td>52:44</td>
+                                <td>-0.566</td>
+                                <td>-0.687</td>
+                                <td>-0.063</td>
+                                <td>-0.587</td>
+                                <td>-0.122</td>
+                                <td>-0.079</td>
+                                <td>1.099</td>
+                                <td>1.791</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

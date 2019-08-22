@@ -1,0 +1,207 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Mark Friedman</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>12:33</td>
+                                <td>-0.554</td>
+                                <td>0.558</td>
+                                <td>2.667</td>
+                                <td>-1.016</td>
+                                <td>-0.689</td>
+                                <td>-0.896</td>
+                                <td>-1.666</td>
+                                <td>-2.452</td>
+                                </tr><tr>
+                                <td>Christian Folin</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>658:40</td>
+                                <td>0.023</td>
+                                <td>0.179</td>
+                                <td>0.057</td>
+                                <td>-0.166</td>
+                                <td>-0.051</td>
+                                <td>-0.076</td>
+                                <td>0.247</td>
+                                <td>-0.508</td>
+                                </tr><tr>
+                                <td>Ivan Provorov</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>1693:34</td>
+                                <td>-0.093</td>
+                                <td>0.157</td>
+                                <td>0.059</td>
+                                <td>-0.178</td>
+                                <td>-0.039</td>
+                                <td>0.037</td>
+                                <td>0.07</td>
+                                <td>0.053</td>
+                                </tr><tr>
+                                <td>Robert Hagg</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>1240:57</td>
+                                <td>0.075</td>
+                                <td>0.157</td>
+                                <td>0.479</td>
+                                <td>-0.017</td>
+                                <td>0.117</td>
+                                <td>0.12</td>
+                                <td>0.01</td>
+                                <td>0.743</td>
+                                </tr><tr>
+                                <td>Andrew MacDonald</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>677:55</td>
+                                <td>-0.082</td>
+                                <td>0.086</td>
+                                <td>0.099</td>
+                                <td>-0.102</td>
+                                <td>0.521</td>
+                                <td>0.019</td>
+                                <td>-0.457</td>
+                                <td>0.202</td>
+                                </tr><tr>
+                                <td>Samuel Morin</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>57:17</td>
+                                <td>0.144</td>
+                                <td>0.012</td>
+                                <td>0.876</td>
+                                <td>-0.318</td>
+                                <td>-0.689</td>
+                                <td>1.199</td>
+                                <td>0.079</td>
+                                <td>-2.148</td>
+                                </tr><tr>
+                                <td>Travis Sanheim</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>1470:24</td>
+                                <td>-0.064</td>
+                                <td>0.012</td>
+                                <td>0.092</td>
+                                <td>-0.268</td>
+                                <td>-0.226</td>
+                                <td>0.029</td>
+                                <td>0.265</td>
+                                <td>0.318</td>
+                                </tr><tr>
+                                <td>Philippe Myers</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>305:10</td>
+                                <td>-0.357</td>
+                                <td>-0.052</td>
+                                <td>0.004</td>
+                                <td>-0.492</td>
+                                <td>0.032</td>
+                                <td>0.35</td>
+                                <td>-0.028</td>
+                                <td>-0.658</td>
+                                </tr><tr>
+                                <td>Shayne Gostisbehere</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>1255:15</td>
+                                <td>-0.235</td>
+                                <td>-0.063</td>
+                                <td>0.069</td>
+                                <td>-0.092</td>
+                                <td>0.156</td>
+                                <td>0.012</td>
+                                <td>-0.041</td>
+                                <td>-0.254</td>
+                                </tr><tr>
+                                <td>Radko Gudas</td>
+                                <td>D</td>
+                                <td>PHI</td>
+                                <td>1172:55</td>
+                                <td>-0.076</td>
+                                <td>-0.098</td>
+                                <td>0.247</td>
+                                <td>-0.198</td>
+                                <td>0.079</td>
+                                <td>-0.043</td>
+                                <td>0.107</td>
+                                <td>0.636</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

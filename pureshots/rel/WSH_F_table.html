@@ -1,0 +1,285 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Nathan Walker</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>21:56</td>
+                                <td>-0.634</td>
+                                <td>0.552</td>
+                                <td>-0.527</td>
+                                <td>-0.943</td>
+                                <td>0.196</td>
+                                <td>0.201</td>
+                                <td>-0.525</td>
+                                <td>2.925</td>
+                                </tr><tr>
+                                <td>Alex Ovechkin</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1336:39</td>
+                                <td>0.025</td>
+                                <td>0.209</td>
+                                <td>0.041</td>
+                                <td>-0.09</td>
+                                <td>-0.087</td>
+                                <td>0.037</td>
+                                <td>-0.255</td>
+                                <td>-0.12</td>
+                                </tr><tr>
+                                <td>Evgeny Kuznetsov</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1132:54</td>
+                                <td>0.09</td>
+                                <td>0.193</td>
+                                <td>0.091</td>
+                                <td>0.01</td>
+                                <td>-0.116</td>
+                                <td>0.083</td>
+                                <td>-0.271</td>
+                                <td>-0.233</td>
+                                </tr><tr>
+                                <td>Tom Wilson</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>913:57</td>
+                                <td>-0.087</td>
+                                <td>0.128</td>
+                                <td>-0.068</td>
+                                <td>0.107</td>
+                                <td>-0.147</td>
+                                <td>0.164</td>
+                                <td>-0.014</td>
+                                <td>-0.271</td>
+                                </tr><tr>
+                                <td>Dmitrij Jaskin</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>363:46</td>
+                                <td>0.081</td>
+                                <td>-0.008</td>
+                                <td>0.078</td>
+                                <td>-0.283</td>
+                                <td>0.164</td>
+                                <td>-0.051</td>
+                                <td>-0.062</td>
+                                <td>0.051</td>
+                                </tr><tr>
+                                <td>Jakub Vrana</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1057:31</td>
+                                <td>-0.123</td>
+                                <td>-0.043</td>
+                                <td>-0.073</td>
+                                <td>-0.338</td>
+                                <td>0.041</td>
+                                <td>-0.03</td>
+                                <td>0.057</td>
+                                <td>-0.251</td>
+                                </tr><tr>
+                                <td>Nicklas Backstrom</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1226:25</td>
+                                <td>-0.047</td>
+                                <td>-0.065</td>
+                                <td>-0.071</td>
+                                <td>-0.242</td>
+                                <td>-0.031</td>
+                                <td>-0.091</td>
+                                <td>-0.165</td>
+                                <td>-0.373</td>
+                                </tr><tr>
+                                <td>Chandler Stephenson</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>661:55</td>
+                                <td>-0.241</td>
+                                <td>-0.094</td>
+                                <td>0.349</td>
+                                <td>-0.188</td>
+                                <td>-0.081</td>
+                                <td>-0.228</td>
+                                <td>-0.409</td>
+                                <td>0.217</td>
+                                </tr><tr>
+                                <td>Devante Smith-Pelly</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>494:17</td>
+                                <td>-0.148</td>
+                                <td>-0.099</td>
+                                <td>-0.001</td>
+                                <td>-0.174</td>
+                                <td>0.012</td>
+                                <td>-0.225</td>
+                                <td>-0.304</td>
+                                <td>1.111</td>
+                                </tr><tr>
+                                <td>Travis Boyd</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>476:36</td>
+                                <td>-0.088</td>
+                                <td>-0.139</td>
+                                <td>0.228</td>
+                                <td>-0.188</td>
+                                <td>0.081</td>
+                                <td>-0.04</td>
+                                <td>-0.22</td>
+                                <td>-0.078</td>
+                                </tr><tr>
+                                <td>Nic Dowd</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>552:13</td>
+                                <td>-0.199</td>
+                                <td>-0.149</td>
+                                <td>0.197</td>
+                                <td>-0.255</td>
+                                <td>-0.1</td>
+                                <td>-0.059</td>
+                                <td>-0.169</td>
+                                <td>-0.356</td>
+                                </tr><tr>
+                                <td>Brett Connolly</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1002:22</td>
+                                <td>0.025</td>
+                                <td>-0.155</td>
+                                <td>0.111</td>
+                                <td>0.074</td>
+                                <td>0.082</td>
+                                <td>0.087</td>
+                                <td>-0.339</td>
+                                <td>-0.394</td>
+                                </tr><tr>
+                                <td>T.J. Oshie</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1012:17</td>
+                                <td>-0.179</td>
+                                <td>-0.185</td>
+                                <td>0.006</td>
+                                <td>-0.232</td>
+                                <td>-0.005</td>
+                                <td>-0.039</td>
+                                <td>-0.212</td>
+                                <td>-0.283</td>
+                                </tr><tr>
+                                <td>Lars Eller</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>1045:54</td>
+                                <td>-0.136</td>
+                                <td>-0.316</td>
+                                <td>0.085</td>
+                                <td>-0.064</td>
+                                <td>-0.008</td>
+                                <td>0.035</td>
+                                <td>-0.232</td>
+                                <td>-0.234</td>
+                                </tr><tr>
+                                <td>Carl Hagelin</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>738:21</td>
+                                <td>-0.011</td>
+                                <td>-0.405</td>
+                                <td>-0.094</td>
+                                <td>-0.131</td>
+                                <td>0.015</td>
+                                <td>-0.115</td>
+                                <td>-0.353</td>
+                                <td>-0.948</td>
+                                </tr><tr>
+                                <td>Andre Burakovsky</td>
+                                <td>F</td>
+                                <td>WSH</td>
+                                <td>823:23</td>
+                                <td>-0.196</td>
+                                <td>-0.422</td>
+                                <td>0.177</td>
+                                <td>0.028</td>
+                                <td>-0.157</td>
+                                <td>0.236</td>
+                                <td>-0.076</td>
+                                <td>-0.011</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

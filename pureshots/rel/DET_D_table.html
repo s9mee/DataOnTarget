@@ -1,0 +1,272 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Brian Lashoff</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>49:41</td>
+                                <td>0.883</td>
+                                <td>0.463</td>
+                                <td>-0.098</td>
+                                <td>0.264</td>
+                                <td>0.836</td>
+                                <td>0.221</td>
+                                <td>-0.16</td>
+                                <td>0.894</td>
+                                </tr><tr>
+                                <td>Trevor Daley</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>698:46</td>
+                                <td>0.017</td>
+                                <td>0.227</td>
+                                <td>-0.014</td>
+                                <td>-0.028</td>
+                                <td>0.314</td>
+                                <td>0.273</td>
+                                <td>0.234</td>
+                                <td>1.553</td>
+                                </tr><tr>
+                                <td>Libor Sulak</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>103:13</td>
+                                <td>-0.146</td>
+                                <td>0.21</td>
+                                <td>0.275</td>
+                                <td>-0.75</td>
+                                <td>0.582</td>
+                                <td>0.951</td>
+                                <td>-0.413</td>
+                                <td>0.475</td>
+                                </tr><tr>
+                                <td>Mike Green</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>840:31</td>
+                                <td>-0.18</td>
+                                <td>0.043</td>
+                                <td>0.142</td>
+                                <td>-0.397</td>
+                                <td>-0.203</td>
+                                <td>0.156</td>
+                                <td>0.062</td>
+                                <td>-0.243</td>
+                                </tr><tr>
+                                <td>Jonathan Ericsson</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>773:47</td>
+                                <td>0.049</td>
+                                <td>0.016</td>
+                                <td>-0.009</td>
+                                <td>0.168</td>
+                                <td>-0.05</td>
+                                <td>0.254</td>
+                                <td>0.272</td>
+                                <td>1.059</td>
+                                </tr><tr>
+                                <td>Madison Bowey</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>713:03</td>
+                                <td>-0.11</td>
+                                <td>-0.053</td>
+                                <td>0.285</td>
+                                <td>-0.215</td>
+                                <td>0.124</td>
+                                <td>-0.117</td>
+                                <td>-0.452</td>
+                                <td>0.662</td>
+                                </tr><tr>
+                                <td>Luke Witkowski</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>304:40</td>
+                                <td>-0.136</td>
+                                <td>-0.097</td>
+                                <td>0.419</td>
+                                <td>-0.091</td>
+                                <td>-0.052</td>
+                                <td>0.13</td>
+                                <td>0.331</td>
+                                <td>0.239</td>
+                                </tr><tr>
+                                <td>Niklas Kronwall</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>1360:57</td>
+                                <td>-0.242</td>
+                                <td>-0.118</td>
+                                <td>0.205</td>
+                                <td>-0.15</td>
+                                <td>-0.069</td>
+                                <td>-0.031</td>
+                                <td>-0.124</td>
+                                <td>-0.192</td>
+                                </tr><tr>
+                                <td>Dennis Cholowski</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>811:09</td>
+                                <td>-0.184</td>
+                                <td>-0.235</td>
+                                <td>-0.056</td>
+                                <td>-0.229</td>
+                                <td>0.015</td>
+                                <td>-0.123</td>
+                                <td>0.326</td>
+                                <td>-0.016</td>
+                                </tr><tr>
+                                <td>Filip Hronek</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>787:20</td>
+                                <td>-0.143</td>
+                                <td>-0.283</td>
+                                <td>0.033</td>
+                                <td>-0.004</td>
+                                <td>-0.164</td>
+                                <td>0.106</td>
+                                <td>-0.093</td>
+                                <td>0.216</td>
+                                </tr><tr>
+                                <td>Dylan McIlrath</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>93:11</td>
+                                <td>-0.298</td>
+                                <td>-0.288</td>
+                                <td>-0.5</td>
+                                <td>0.129</td>
+                                <td>0.514</td>
+                                <td>0.087</td>
+                                <td>-0.482</td>
+                                <td>-0.637</td>
+                                </tr><tr>
+                                <td>Nick Jensen</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>1388:08</td>
+                                <td>-0.251</td>
+                                <td>-0.297</td>
+                                <td>0.148</td>
+                                <td>-0.195</td>
+                                <td>-0.025</td>
+                                <td>-0.223</td>
+                                <td>-0.372</td>
+                                <td>-0.246</td>
+                                </tr><tr>
+                                <td>Danny DeKeyser</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>999:47</td>
+                                <td>-0.147</td>
+                                <td>-0.347</td>
+                                <td>0.18</td>
+                                <td>-0.104</td>
+                                <td>-0.094</td>
+                                <td>0.214</td>
+                                <td>-0.189</td>
+                                <td>0.297</td>
+                                </tr><tr>
+                                <td>Joe Hicketts</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>175:28</td>
+                                <td>-0.043</td>
+                                <td>-0.349</td>
+                                <td>-0.158</td>
+                                <td>0.196</td>
+                                <td>0.138</td>
+                                <td>0.267</td>
+                                <td>0.624</td>
+                                <td>0.555</td>
+                                </tr><tr>
+                                <td>Jake Chelios</td>
+                                <td>D</td>
+                                <td>DET</td>
+                                <td>82:20</td>
+                                <td>-0.241</td>
+                                <td>-0.661</td>
+                                <td>-0.014</td>
+                                <td>-0.215</td>
+                                <td>1.169</td>
+                                <td>0.228</td>
+                                <td>-1.041</td>
+                                <td>-0.286</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

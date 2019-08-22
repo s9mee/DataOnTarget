@@ -1,0 +1,467 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                            <td>Kyle Capobianco</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>28:54</td>
+                            <td>-0.651</td>
+                            <td>0.89</td>
+                            <td>-0.526</td>
+                            <td>-0.796</td>
+                            <td>0.094</td>
+                            <td>0.002</td>
+                            <td>1.975</td>
+                            <td>-0.624</td>
+                            </tr><tr>
+                            <td>Dylan Strome</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>1024:34</td>
+                            <td>0.052</td>
+                            <td>0.61</td>
+                            <td>0.216</td>
+                            <td>0.083</td>
+                            <td>0.378</td>
+                            <td>0.228</td>
+                            <td>-0.002</td>
+                            <td>0.29</td>
+                            </tr><tr>
+                            <td>Dakota Mermis</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>11:20</td>
+                            <td>1.114</td>
+                            <td>0.578</td>
+                            <td>-0.526</td>
+                            <td>-0.796</td>
+                            <td>-0.598</td>
+                            <td>-0.69</td>
+                            <td>-1.485</td>
+                            <td>-3.704</td>
+                            </tr><tr>
+                            <td>Brendan Perlini</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>731:45</td>
+                            <td>0.114</td>
+                            <td>0.454</td>
+                            <td>0.294</td>
+                            <td>0.106</td>
+                            <td>0.14</td>
+                            <td>0.24</td>
+                            <td>0.1</td>
+                            <td>-0.112</td>
+                            </tr><tr>
+                            <td>Jason Demers</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>618:32</td>
+                            <td>-0.198</td>
+                            <td>0.43</td>
+                            <td>0.056</td>
+                            <td>-0.278</td>
+                            <td>-0.21</td>
+                            <td>-0.205</td>
+                            <td>0.164</td>
+                            <td>0.222</td>
+                            </tr><tr>
+                            <td>Michael Grabner</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>489:54</td>
+                            <td>-0.202</td>
+                            <td>0.365</td>
+                            <td>0.209</td>
+                            <td>0.021</td>
+                            <td>0.096</td>
+                            <td>0.086</td>
+                            <td>-0.056</td>
+                            <td>0.492</td>
+                            </tr><tr>
+                            <td>Alex Galchenyuk</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>903:51</td>
+                            <td>-0.098</td>
+                            <td>0.23</td>
+                            <td>0.293</td>
+                            <td>-0.066</td>
+                            <td>0.088</td>
+                            <td>0.195</td>
+                            <td>0.064</td>
+                            <td>-0.733</td>
+                            </tr><tr>
+                            <td>Christian Dvorak</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>260:08</td>
+                            <td>-0.497</td>
+                            <td>0.198</td>
+                            <td>0.089</td>
+                            <td>-0.334</td>
+                            <td>-0.06</td>
+                            <td>-0.305</td>
+                            <td>0.052</td>
+                            <td>-0.394</td>
+                            </tr><tr>
+                            <td>Lawson Crouse</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>937:16</td>
+                            <td>-0.054</td>
+                            <td>0.137</td>
+                            <td>-0.056</td>
+                            <td>-0.156</td>
+                            <td>-0.022</td>
+                            <td>-0.049</td>
+                            <td>0.008</td>
+                            <td>0.442</td>
+                            </tr><tr>
+                            <td>Ilya Lyubushkin</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>551:48</td>
+                            <td>-0.216</td>
+                            <td>0.118</td>
+                            <td>0.163</td>
+                            <td>-0.071</td>
+                            <td>0.127</td>
+                            <td>0.035</td>
+                            <td>0.073</td>
+                            <td>-0.431</td>
+                            </tr><tr>
+                            <td>Josh Archibald</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>809:36</td>
+                            <td>-0.132</td>
+                            <td>0.098</td>
+                            <td>-0.032</td>
+                            <td>-0.153</td>
+                            <td>0.02</td>
+                            <td>-0.023</td>
+                            <td>0.219</td>
+                            <td>0.435</td>
+                            </tr><tr>
+                            <td>Oliver Ekman-Larsson</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>1524:33</td>
+                            <td>-0.021</td>
+                            <td>0.086</td>
+                            <td>0.222</td>
+                            <td>-0.218</td>
+                            <td>0.045</td>
+                            <td>-0.021</td>
+                            <td>-0.16</td>
+                            <td>-0.471</td>
+                            </tr><tr>
+                            <td>Nick Cousins</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>1025:46</td>
+                            <td>-0.242</td>
+                            <td>0.081</td>
+                            <td>0.137</td>
+                            <td>-0.133</td>
+                            <td>-0.15</td>
+                            <td>0.051</td>
+                            <td>-0.023</td>
+                            <td>0.4</td>
+                            </tr><tr>
+                            <td>Michael Bunting</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>47:47</td>
+                            <td>-0.651</td>
+                            <td>0.069</td>
+                            <td>-0.526</td>
+                            <td>-0.377</td>
+                            <td>0.658</td>
+                            <td>-0.271</td>
+                            <td>-0.648</td>
+                            <td>-0.865</td>
+                            </tr><tr>
+                            <td>Brad Richardson</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>869:01</td>
+                            <td>-0.352</td>
+                            <td>0.056</td>
+                            <td>0.28</td>
+                            <td>-0.036</td>
+                            <td>0.023</td>
+                            <td>0.093</td>
+                            <td>0.08</td>
+                            <td>0.101</td>
+                            </tr><tr>
+                            <td>Derek Stepan</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>1050:21</td>
+                            <td>-0.08</td>
+                            <td>0.032</td>
+                            <td>0.103</td>
+                            <td>0.137</td>
+                            <td>-0.008</td>
+                            <td>-0.023</td>
+                            <td>-0.133</td>
+                            <td>0.034</td>
+                            </tr><tr>
+                            <td>Christian Fischer</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>817:22</td>
+                            <td>-0.137</td>
+                            <td>-0.036</td>
+                            <td>0.135</td>
+                            <td>-0.086</td>
+                            <td>0.087</td>
+                            <td>-0.053</td>
+                            <td>-0.213</td>
+                            <td>-0.012</td>
+                            </tr><tr>
+                            <td>Jordan Oesterle</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>1141:48</td>
+                            <td>-0.231</td>
+                            <td>-0.048</td>
+                            <td>0.07</td>
+                            <td>-0.007</td>
+                            <td>0.015</td>
+                            <td>0.029</td>
+                            <td>0.039</td>
+                            <td>-0.512</td>
+                            </tr><tr>
+                            <td>Clayton Keller</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>1194:41</td>
+                            <td>-0.082</td>
+                            <td>-0.065</td>
+                            <td>0.177</td>
+                            <td>-0.076</td>
+                            <td>-0.062</td>
+                            <td>0.03</td>
+                            <td>-0.046</td>
+                            <td>-0.497</td>
+                            </tr><tr>
+                            <td>Kevin Connauton</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>774:07</td>
+                            <td>-0.031</td>
+                            <td>-0.075</td>
+                            <td>0.224</td>
+                            <td>0.031</td>
+                            <td>-0.055</td>
+                            <td>0.034</td>
+                            <td>0.168</td>
+                            <td>0.835</td>
+                            </tr><tr>
+                            <td>Vinnie Hinostroza</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>993:02</td>
+                            <td>-0.228</td>
+                            <td>-0.079</td>
+                            <td>0.26</td>
+                            <td>0.05</td>
+                            <td>0.046</td>
+                            <td>0.156</td>
+                            <td>0.307</td>
+                            <td>-0.655</td>
+                            </tr><tr>
+                            <td>Richard Panik</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>1007:02</td>
+                            <td>-0.194</td>
+                            <td>-0.094</td>
+                            <td>0.368</td>
+                            <td>-0.061</td>
+                            <td>-0.062</td>
+                            <td>0.045</td>
+                            <td>0.163</td>
+                            <td>-0.464</td>
+                            </tr><tr>
+                            <td>Niklas Hjalmarsson</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>1354:26</td>
+                            <td>-0.267</td>
+                            <td>-0.108</td>
+                            <td>0.05</td>
+                            <td>-0.279</td>
+                            <td>0.007</td>
+                            <td>0.019</td>
+                            <td>-0.215</td>
+                            <td>-0.301</td>
+                            </tr><tr>
+                            <td>Nick Schmaltz</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>577:34</td>
+                            <td>0.215</td>
+                            <td>-0.113</td>
+                            <td>0.34</td>
+                            <td>-0.069</td>
+                            <td>0.233</td>
+                            <td>0.28</td>
+                            <td>0.177</td>
+                            <td>-0.482</td>
+                            </tr><tr>
+                            <td>Mario Kempe</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>541:32</td>
+                            <td>-0.208</td>
+                            <td>-0.115</td>
+                            <td>-0.009</td>
+                            <td>-0.316</td>
+                            <td>-0.192</td>
+                            <td>-0.025</td>
+                            <td>-0.045</td>
+                            <td>-0.151</td>
+                            </tr><tr>
+                            <td>Alex Goligoski</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>1322:48</td>
+                            <td>-0.273</td>
+                            <td>-0.128</td>
+                            <td>0.17</td>
+                            <td>-0.01</td>
+                            <td>0.022</td>
+                            <td>-0.009</td>
+                            <td>0.072</td>
+                            <td>-0.54</td>
+                            </tr><tr>
+                            <td>Conor Garland</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>488:44</td>
+                            <td>-0.16</td>
+                            <td>-0.204</td>
+                            <td>0.293</td>
+                            <td>-0.059</td>
+                            <td>-0.189</td>
+                            <td>-0.117</td>
+                            <td>-0.544</td>
+                            <td>-0.435</td>
+                            </tr><tr>
+                            <td>Jakob Chychrun</td>
+                            <td>D</td>
+                            <td>ARI</td>
+                            <td>935:55</td>
+                            <td>-0.288</td>
+                            <td>-0.289</td>
+                            <td>0.244</td>
+                            <td>-0.197</td>
+                            <td>-0.021</td>
+                            <td>0.058</td>
+                            <td>-0.118</td>
+                            <td>-0.682</td>
+                            </tr><tr>
+                            <td>Jordan Weal</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>780:35</td>
+                            <td>-0.292</td>
+                            <td>-0.52</td>
+                            <td>-0.09</td>
+                            <td>-0.232</td>
+                            <td>0.273</td>
+                            <td>-0.075</td>
+                            <td>0.052</td>
+                            <td>-0.703</td>
+                            </tr><tr>
+                            <td>Laurent Dauphin</td>
+                            <td>F</td>
+                            <td>ARI</td>
+                            <td>12:19</td>
+                            <td>-0.651</td>
+                            <td>-1.186</td>
+                            <td>1.098</td>
+                            <td>-0.796</td>
+                            <td>-0.598</td>
+                            <td>-0.69</td>
+                            <td>-1.485</td>
+                            <td>-0.597</td>
+                            </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>

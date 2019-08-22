@@ -1,0 +1,311 @@
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Data On Target</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="client.js"></script>
+    
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="https://drvic10k.github.io/bootstrap-sortable/Contents/bootstrap-sortable.css" />
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
+        
+            <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+        
+            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+        </head>        
+        <body>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search player name.." title="Type in a name">
+            </br>
+            <script>
+            function search() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("data_table");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+
+            </script>
+    
+            <table id ="data_table" class = "table table-bordered sortable">
+                <thead>
+                    <tr>
+                        <th>Skater</th>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>Even Strength TOI</th>
+                        <th>S+ PS Against/20 REL</th>
+                        <th>S PS Against/20 REL</th>
+                        <th>A PS Against/20 REL</th>
+                        <th>B PS Against/20 REL</th>
+                        <th>C PS Against/20 REL</th>
+                        <th>D PS Against/20 REL</th>
+                        <th>E PS Against/20 REL</th>
+                        <th>F PS Against/20 REL</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='myTable'>
+    <tr>
+                                <td>Valtteri Filppula</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td></td>
+                                <td>379.409</td>
+                                <td>1278.798</td>
+                                <td>699.527</td>
+                                <td>679.082</td>
+                                <td>779.21</td>
+                                <td>939.153</td>
+                                <td>1438.519</td>
+                                <td>4515.075</td>
+                                </tr><tr>
+                                <td>Stephen Gionta</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>38:26</td>
+                                <td>-0.071</td>
+                                <td>0.88</td>
+                                <td>-0.473</td>
+                                <td>1.164</td>
+                                <td>0.251</td>
+                                <td>0.194</td>
+                                <td>-0.96</td>
+                                <td>0.799</td>
+                                </tr><tr>
+                                <td>Anthony Beauvillier</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>1051:41</td>
+                                <td>-0.097</td>
+                                <td>0.092</td>
+                                <td>0.25</td>
+                                <td>-0.252</td>
+                                <td>-0.086</td>
+                                <td>-0.029</td>
+                                <td>-0.112</td>
+                                <td>-0.475</td>
+                                </tr><tr>
+                                <td>Leo Komarov</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>991:15</td>
+                                <td>-0.188</td>
+                                <td>0.069</td>
+                                <td>0.294</td>
+                                <td>-0.131</td>
+                                <td>0.017</td>
+                                <td>0.001</td>
+                                <td>0.093</td>
+                                <td>0.644</td>
+                                </tr><tr>
+                                <td>Josh Bailey</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>1176:05</td>
+                                <td>-0.081</td>
+                                <td>0.006</td>
+                                <td>0.258</td>
+                                <td>-0.221</td>
+                                <td>-0.025</td>
+                                <td>-0.048</td>
+                                <td>0.067</td>
+                                <td>-0.061</td>
+                                </tr><tr>
+                                <td>Andrew Ladd</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>334:12</td>
+                                <td>-0.412</td>
+                                <td>-0.005</td>
+                                <td>0.066</td>
+                                <td>0.339</td>
+                                <td>-0.072</td>
+                                <td>0.051</td>
+                                <td>0.793</td>
+                                <td>-0.257</td>
+                                </tr><tr>
+                                <td>Ross Johnston</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>133:53</td>
+                                <td>-0.293</td>
+                                <td>-0.007</td>
+                                <td>0.274</td>
+                                <td>-0.47</td>
+                                <td>-0.193</td>
+                                <td>0.049</td>
+                                <td>0.611</td>
+                                <td>0.453</td>
+                                </tr><tr>
+                                <td>Cal Clutterbuck</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>794:37</td>
+                                <td>-0.289</td>
+                                <td>-0.019</td>
+                                <td>0.106</td>
+                                <td>-0.087</td>
+                                <td>0.166</td>
+                                <td>-0.016</td>
+                                <td>-0.046</td>
+                                <td>0.612</td>
+                                </tr><tr>
+                                <td>Matt Martin</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>748:23</td>
+                                <td>-0.297</td>
+                                <td>-0.026</td>
+                                <td>0.195</td>
+                                <td>-0.063</td>
+                                <td>0.145</td>
+                                <td>-0.018</td>
+                                <td>-0.118</td>
+                                <td>0.634</td>
+                                </tr><tr>
+                                <td>Jordan Eberle</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>1068:00</td>
+                                <td>-0.104</td>
+                                <td>-0.041</td>
+                                <td>0.239</td>
+                                <td>-0.187</td>
+                                <td>0.015</td>
+                                <td>0.052</td>
+                                <td>-0.245</td>
+                                <td>0.206</td>
+                                </tr><tr>
+                                <td>Mathew Barzal</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>1223:09</td>
+                                <td>-0.134</td>
+                                <td>-0.057</td>
+                                <td>0.295</td>
+                                <td>-0.264</td>
+                                <td>-0.152</td>
+                                <td>-0.111</td>
+                                <td>-0.156</td>
+                                <td>-0.461</td>
+                                </tr><tr>
+                                <td>Casey Cizikas</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>876:40</td>
+                                <td>-0.249</td>
+                                <td>-0.107</td>
+                                <td>0.189</td>
+                                <td>-0.165</td>
+                                <td>0.031</td>
+                                <td>0.066</td>
+                                <td>0.071</td>
+                                <td>0.893</td>
+                                </tr><tr>
+                                <td>Brock Nelson</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>1210:55</td>
+                                <td>-0.079</td>
+                                <td>-0.145</td>
+                                <td>0.122</td>
+                                <td>-0.125</td>
+                                <td>0.102</td>
+                                <td>-0.004</td>
+                                <td>0.006</td>
+                                <td>0.014</td>
+                                </tr><tr>
+                                <td>Tom Kuhnhackl</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>417:26</td>
+                                <td>0.032</td>
+                                <td>-0.148</td>
+                                <td>0.15</td>
+                                <td>-0.007</td>
+                                <td>0.072</td>
+                                <td>0.064</td>
+                                <td>-0.139</td>
+                                <td>0.537</td>
+                                </tr><tr>
+                                <td>Anders Lee</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>1165:32</td>
+                                <td>-0.128</td>
+                                <td>-0.189</td>
+                                <td>0.093</td>
+                                <td>-0.231</td>
+                                <td>0.016</td>
+                                <td>0.114</td>
+                                <td>-0.022</td>
+                                <td>0.223</td>
+                                </tr><tr>
+                                <td>Joshua Ho-Sang</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>126:04</td>
+                                <td>-0.274</td>
+                                <td>-0.408</td>
+                                <td>0.637</td>
+                                <td>-0.6</td>
+                                <td>-0.314</td>
+                                <td>-0.054</td>
+                                <td>-0.212</td>
+                                <td>-2.069</td>
+                                </tr><tr>
+                                <td>Michael Dal Colle</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>333:09</td>
+                                <td>-0.111</td>
+                                <td>-0.481</td>
+                                <td>0.187</td>
+                                <td>-0.438</td>
+                                <td>-0.25</td>
+                                <td>-0.307</td>
+                                <td>-0.22</td>
+                                <td>0.238</td>
+                                </tr><tr>
+                                <td>Tanner Fritz</td>
+                                <td>F</td>
+                                <td>NYI</td>
+                                <td>83:48</td>
+                                <td>-0.114</td>
+                                <td>-0.486</td>
+                                <td>0.482</td>
+                                <td>-0.202</td>
+                                <td>0.403</td>
+                                <td>-0.608</td>
+                                <td>-0.526</td>
+                                <td>1.519</td>
+                                </tr>
+                </tbody>
+            
+            </table>
+        </body>
+    </html>
